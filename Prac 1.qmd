@@ -95,3 +95,5 @@ beta_est
 lm_model <- lm(dist ~ speed, data = cars) #makes use of the lm() function
 summary(lm_model)$coefficients
 ```
+
+### The estimates found are the same.
