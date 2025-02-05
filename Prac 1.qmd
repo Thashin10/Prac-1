@@ -31,7 +31,7 @@ projr_init(
   init_git = TRUE,
   git_add_and_commit_all = TRUE,
   init_readme = TRUE,
-  init_github = FALSE,
+  init_github = TRUE,
   github_private = TRUE
 )
 ```
