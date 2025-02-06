@@ -5,37 +5,6 @@ format: html
 editor: visual
 ---
 
-```{r}
-
-# ============================
-# Installing projrsimple
-# ============================
-
-if (!requireNamespace("remotes", quietly = TRUE)) {
-  install.packages("remotes")
-}
-remotes::install_github("MiguelRodo/projrsimple")
-
-# ============================
-# Initializing Project
-# ============================
-
-library(projrsimple)
-
-projr_init(
-  dir_raw_data = "_raw_data",
-  dir_cache = "_tmp",
-  dir_docs = "docs",
-  dir_output = "_output",
-  dir_reference = "_reference",
-  init_git = TRUE,
-  git_add_and_commit_all = TRUE,
-  init_readme = TRUE,
-  init_github = TRUE,
-  github_private = TRUE
-)
-```
-
 # ============================
 
 # Codes for Practical One
@@ -93,7 +62,25 @@ beta_est
 ```{r}
 
 lm_model <- lm(dist ~ speed, data = cars) #makes use of the lm() function
-summary(lm_model)$coefficients
+lm_sum <- summary(lm_model)$coefficients
+
 ```
 
-### The estimates found are the same.
+### 5. Compare the estimates
+
+```{r}
+compare_regression <- function(data) {
+  
+  return(list(
+    matrix_coefficients = beta_est,
+    lm_coefficients = lm_sum
+  ))
+}
+
+# Run function on cars dataset
+compare_results <- compare_regression(cars)
+compare_results  # Display results
+
+
+
+```
